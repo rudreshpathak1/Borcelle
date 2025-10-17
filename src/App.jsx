@@ -10,7 +10,7 @@ import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 import Menu from "./components/Menu"; 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import { HashRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import About from "./components/About";
 import Special from "./components/Special";
 import Contact from "./components/Contact";
