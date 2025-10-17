@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "name": "Idli",
+    "description": "Steamed fluffy rice cakes served with coconut chutney and sambar.",
+    "price": 49,
+    "category": "Snacks",
+    "cuisine": "Fast Food",
+    "image": "https://res.cloudinary.com/duqwpptvw/image/upload/v1760620793/foodItems/en7mpk44amsdxoemqfzw.jpg"
+  }
+]

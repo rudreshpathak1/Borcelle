@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+
+@theme {
+  /* Custom Colors */
+  --color-primary: var(--color-orange-400);
+  
+}
+
+ /* globals.css or index.css */
+  @layer utilities {
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+  }
