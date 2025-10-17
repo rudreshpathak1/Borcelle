@@ -7,5 +7,68 @@
     "category": "Snacks",
     "cuisine": "Fast Food",
     "image": "https://res.cloudinary.com/duqwpptvw/image/upload/v1760620793/foodItems/en7mpk44amsdxoemqfzw.jpg"
+  },
+  {
+    "id": 1760702674095,
+    "name": "Margherita Pizza",
+    "description": "Classic cheese pizza with a crispy thin crust and tomato sauce.",
+    "price": "199",
+    "category": "Pizza",
+    "cuisine": "Italian",
+    "image": "https://res.cloudinary.com/duqwpptvw/image/upload/v1760702672/foodItems/yhjg06lrzwinjtmbxop5.jpg"
+  },
+  {
+    "id": 1760702764792,
+    "name": "Veggie Supreme",
+    "description": "Loaded with mushrooms, onions, capsicum, and black olives.",
+    "price": "249",
+    "category": "Pizza",
+    "cuisine": "Italian",
+    "image": "https://res.cloudinary.com/duqwpptvw/image/upload/v1760702763/foodItems/yghvms1teysyhkhbkadr.jpg"
+  },
+  {
+    "id": 1760703097790,
+    "name": "Paneer Tikka Wrap",
+    "description": "Grilled paneer, veggies, and creamy sauce rolled in a soft tortilla.",
+    "price": "149",
+    "category": "Wraps",
+    "cuisine": "Fast Food",
+    "image": "https://res.cloudinary.com/duqwpptvw/image/upload/v1760703096/foodItems/gk7gbqya1fhxitblpowk.jpg"
+  },
+  {
+    "id": 1760703191783,
+    "name": "Aloo Tikki Burger",
+    "description": "Crispy potato patty with lettuce and tangy mayo in a toasted bun.",
+    "price": "99",
+    "category": "Burger",
+    "cuisine": "Fast Food",
+    "image": "https://res.cloudinary.com/duqwpptvw/image/upload/v1760703190/foodItems/jgf4w5nbpevxzwbjopou.jpg"
+  },
+  {
+    "id": 1760703636010,
+    "name": "Chocolate Brownie",
+    "description": "Rich and gooey chocolate brownie topped with dark chocolate sauce.",
+    "price": "129",
+    "category": "Snacks",
+    "cuisine": "Fast Food",
+    "image": "https://res.cloudinary.com/duqwpptvw/image/upload/v1760703635/foodItems/rjjqbbhr9bij5ndaroqh.jpg"
+  },
+  {
+    "id": 1760704112632,
+    "name": "French Fries",
+    "description": "Crispy golden fries seasoned with salt and herbs.",
+    "price": "99",
+    "category": "Snacks",
+    "cuisine": "Fast Food",
+    "image": "https://res.cloudinary.com/duqwpptvw/image/upload/v1760704111/foodItems/c6yi0mpcvoye3kxktzbf.jpg"
+  },
+  {
+    "id": 1760704112633,
+    "name": "Cold Coffee",
+    "description": "Cold Coffee",
+    "price": "149",
+    "category": "Snacks",
+    "cuisine": "Beverages",
+    "image": "https://res.cloudinary.com/duqwpptvw/image/upload/v1760705546/foodItems/nwvvcmgiu50xikudvx1f.jpg"
   }
 ]

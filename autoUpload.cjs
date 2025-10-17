@@ -1,13 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
-const cloudinary = require('./Backend/cloudinaryConfig.cjs');
+const cloudinary = require('./Backend/cloudinaryConfig.cjs'); // make sure this path is correct
 
-const folder = path.join(__dirname, 'upload');
-let uploadedImages = [];
+const folder = path.join(__dirname, 'upload'); // your upload folder
 const TARGET_SIZE = 250 * 1024; // 250KB target size
+let uploadedImages = [];
 
-// compress function
+// Compress image to target size
 async function compressToTarget(inputPath, outputPath) {
   let quality = 80;
   let buffer = await sharp(inputPath).jpeg({ quality }).toBuffer();
@@ -20,22 +20,47 @@ async function compressToTarget(inputPath, outputPath) {
   await sharp(buffer).toFile(outputPath);
 }
 
-// main process
+// Main function
 fs.readdir(folder, async (err, files) => {
-  if (err) return console.error(err);
+  if (err) return console.error('❌ Error reading folder:', err);
+  if (!files.length) return console.log('⚠️ No files found in upload folder.');
 
-  for (const file of files) {
-    const inputPath = path.join(folder, file);
-    const compressedPath = path.join(folder, 'compressed-' + file);
+  console.log(`📁 Found ${files.length} files. Starting upload...\n`);
 
-    await compressToTarget(inputPath, compressedPath);
+  await Promise.all(
+    files.map(async (file, index) => {
+      try {
+        const inputPath = path.join(folder, file);
+        const compressedPath = path.join(folder, `compressed-${file}`);
 
-    const result = await cloudinary.uploader.upload(compressedPath, { folder: 'foodItems' });
-    console.log('✅ Uploaded:', result.secure_url);
+        // Compress image
+        await compressToTarget(inputPath, compressedPath);
 
-    uploadedImages.push({ name: file, url: result.secure_url });
-  }
+        // Upload to Cloudinary with sequential ID
+        const publicId = (index + 1).toString(); // 1,2,3...
+        const result = await cloudinary.uploader.upload(compressedPath, {
+          folder: 'foodItems',
+          public_id: publicId,
+        });
 
+        console.log(`✅ Uploaded (${publicId}):`, result.secure_url);
+
+        uploadedImages.push({
+          id: publicId,
+          name: file,
+          url: result.secure_url,
+        });
+
+        // Delete compressed file after upload
+        fs.unlinkSync(compressedPath);
+
+      } catch (uploadErr) {
+        console.error('❌ Upload failed for', file, uploadErr);
+      }
+    })
+  );
+
+  // Save all uploaded URLs to JSON
   fs.writeFileSync('uploadedImages.json', JSON.stringify(uploadedImages, null, 2));
-  console.log('🎉 All done! Links saved in uploadedImages.json');
+  console.log('\n🎉 All done! Links saved in uploadedImages.json');
 });
