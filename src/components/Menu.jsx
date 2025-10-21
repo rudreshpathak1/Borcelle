@@ -8,9 +8,12 @@ const Menu = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/food-items");
-        if (res.data.success) {
-          setFoodItems(res.data.data);
+        const res = await axios.get("/api/menu");
+        if (Array.isArray(res.data)) {
+          setFoodItems(res.data);
+          console.log("Fetched Successfully");
+        } else {
+          console.warn("Unexpected response:", res.data);
         }
       } catch (err) {
         console.error("Failed to fetch food items:", err);
@@ -74,7 +77,7 @@ const Menu = () => {
           >
             {groupedByCuisine[cuisine].map((item) => (
               <div
-                key={item.id}
+                key={item._id}
                 className="flex-shrink-0 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 p-3 sm:p-4 flex flex-col items-center text-center justify-between h-80 sm:h-[380px] w-60"
               >
                 <div className="w-full flex flex-col items-center">
